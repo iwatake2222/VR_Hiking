@@ -1,0 +1,3 @@
+[submodule "StepCountServer/posenet"]
+	path = StepCountServer/posenet
+	url = https://github.com/google-coral/project-posenet.git
