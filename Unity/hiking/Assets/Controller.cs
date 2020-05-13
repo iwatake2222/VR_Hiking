@@ -4,6 +4,7 @@
 // 2014/03/13 N.Kobyasahi
 //
 using UnityEngine;
+using UnityEngine.XR;
 using System.Collections;
 
 namespace UnityChan
@@ -28,6 +29,11 @@ namespace UnityChan
         {
             float h = Input.GetAxis ("Horizontal");
             float v = Input.GetAxis ("Vertical");
+
+            if (v > 0) {
+                Quaternion vrRotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
+                h += vrRotation.y;
+            }
 
             Vector3 velocity = new Vector3 (0, 0, v);
             velocity = transform.TransformDirection (velocity);
