@@ -11,7 +11,7 @@
 
 ## Environment
 - Windows 10
-- Unity
+- Unity 2018.4.22f1 Personal
 - Oculus Rift S
 - Edge TPU
 - USB Camera
