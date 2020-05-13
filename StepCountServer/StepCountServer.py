@@ -37,6 +37,7 @@ def count_step():
 	global step_counter
 
 	# engine = PoseEngine("posenet/models/mobilenet/posenet_mobilenet_v1_075_721_1281_quant_decoder_edgetpu.tflite")
+	# engine = pose_engine.PoseEngine("posenet/models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder.tflite")
 	engine = pose_engine.PoseEngine("posenet/models/mobilenet/posenet_mobilenet_v1_075_481_641_quant_decoder_edgetpu.tflite")
 	cap = cv2.VideoCapture(0)
 	cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
