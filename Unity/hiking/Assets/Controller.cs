@@ -5,6 +5,7 @@
 //
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.Networking;
 using System.Collections;
 
 namespace UnityChan
@@ -19,20 +20,45 @@ namespace UnityChan
         public float rotateSpeed = 2.0f;
         private Animator anim;
 
-        // 初期化
+        private int newCntStep;
+        private int previousCntStep;
+        private bool isMoving = false;
+        private int cntKeepNotMoving = 0;
+        private bool isAccessingServer = false;
+
         void Start ()
         {
             anim = GetComponent<Animator> ();
+            StartCoroutine(GetText());
         }
 
         void FixedUpdate ()
         {
             float h = Input.GetAxis ("Horizontal");
             float v = Input.GetAxis ("Vertical");
+            
+            /* Get v value from step counter via HTTP */
+            /* keep moving for few frames after count stops to make it smooth */
+            if (newCntStep - previousCntStep > 0) {
+                isMoving = true;
+                cntKeepNotMoving = 0;
+            } else {
+                cntKeepNotMoving++;
+                if (cntKeepNotMoving > 50) {
+                    isMoving = false;
+                }
+            }
+            if (isMoving) {
+                v += 1;
+            }
+            previousCntStep = newCntStep;
+            // Debug.Log(newCntStep);
+            if (!isAccessingServer) StartCoroutine(GetText());
 
+            /* Get h from VR headset. change rotation only when moving */
             if (v > 0) {
                 Quaternion vrRotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
-                h += vrRotation.y;
+                h += -vrRotation.y;
             }
 
             Vector3 velocity = new Vector3 (0, 0, v);
@@ -50,5 +76,21 @@ namespace UnityChan
             anim.SetFloat ("Direction", h);
             anim.speed = animSpeed;
          }
+
+        IEnumerator GetText() {
+            isAccessingServer = true;
+            UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:5000/get_count");
+            yield return request.Send();
+            if (request.isError) {
+                Debug.Log(request.error);
+            } else {
+                if (request.responseCode == 200) {
+                    string text = request.downloadHandler.text;
+                    newCntStep = int.Parse(text);
+                    // Debug.Log(newCntStep);
+                }
+                isAccessingServer = false;
+            }
+        }
     }
 }
