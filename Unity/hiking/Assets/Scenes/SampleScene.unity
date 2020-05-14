@@ -175,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170076733}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -1271, y: 224, z: -431}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440730929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.42, z: 0.09}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1400297598}
@@ -274,7 +274,6 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
-  - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: CameraBack
   m_TagString: MainCamera
@@ -340,27 +339,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.91, z: -1.16}
+  m_LocalPosition: {x: 0.4, y: 1.02, z: -1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1400297598}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &534669906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721a99b2004e9d84fb964f16554767cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraFps: {fileID: 440730929}
-  CameraBack: {fileID: 440730929}
-  CameraSide: {fileID: 0}
 --- !u!1 &1400297589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100076, guid: 69c3ed15e9d13481e8f7dc4db5532fb6,
@@ -388,6 +372,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2065961357}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400297600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400297589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf411da1504c168418b350862edabf50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animSpeed: 1.5
+  forwardSpeed: 7
+  backwardSpeed: 2
+  rotateSpeed: 2
 --- !u!1 &1891558651
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +533,10 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13600000, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 3}
       propertyPath: m_Material
       value: 
@@ -615,7 +619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076153627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -237.8, y: -17.3, z: -249.2}
+  m_LocalPosition: {x: -988, y: -228.2, z: -906.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -665,7 +669,7 @@ MonoBehaviour:
   hydraulicEntropy: 0
   hydraulicDowncutting: 0.1
   tidalIterations: 25
-  tidalSeaLevel: 150
+  tidalSeaLevel: 250
   tidalRangeAmount: 90
   tidalCliffLimit: 45
   windIterations: 5
@@ -677,11 +681,11 @@ MonoBehaviour:
   windEntropy: 0.1
   windSmoothing: 1
   terrainLayers:
-  - {fileID: 8574412962073106934, guid: 95522c81ba16aa843950babc1102df46, type: 2}
-  - {fileID: 8574412962073106934, guid: 722f87ec91186314c99114e552c3abcf, type: 2}
-  - {fileID: 8574412962073106934, guid: 7ae6caf10e956c247ae573480b71f2da, type: 2}
-  - {fileID: 8574412962073106934, guid: 8dd8481e22c7dda47b14adafca8284d7, type: 2}
-  - {fileID: 8574412962073106934, guid: d7542f7bc17fd794aa9bb29e809e4298, type: 2}
+  - {fileID: 8574412962073106934, guid: 2f26cbde72f5f4042aaa0dcedb32bef5, type: 2}
+  - {fileID: 8574412962073106934, guid: a14757fee2e957c45bd8bdf4bf215eec, type: 2}
+  - {fileID: 8574412962073106934, guid: 93da08161d03e4641a34ef27b0a700a1, type: 2}
+  - {fileID: 8574412962073106934, guid: bf25f1ac6382eae41ae0f27ba2547aa0, type: 2}
+  - {fileID: 8574412962073106934, guid: b3baee6fce76e2a4597b7952b26636a7, type: 2}
   slopeBlendMinAngle: 30
   slopeBlendMaxAngle: 45
   heightBlendPoints:

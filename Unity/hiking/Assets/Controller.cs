@@ -81,16 +81,16 @@ namespace UnityChan
             isAccessingServer = true;
             UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:5000/get_count");
             yield return request.Send();
-            if (request.isError) {
-                Debug.Log(request.error);
-            } else {
+            // if (request.isError) {
+            //     Debug.Log(request.error);
+            // } else {
                 if (request.responseCode == 200) {
                     string text = request.downloadHandler.text;
                     newCntStep = int.Parse(text);
                     // Debug.Log(newCntStep);
                 }
                 isAccessingServer = false;
-            }
+            // }
         }
     }
 }

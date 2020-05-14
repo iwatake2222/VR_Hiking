@@ -1,4 +1,6 @@
 # VR Hiking Application
+![demo_VF_hiking](00_doc/demo.gif "demo.gif")
+
 - This project consits of two parts
 	- Server to count steps
 		- Capture camera image
